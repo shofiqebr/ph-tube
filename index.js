@@ -36,7 +36,13 @@ const handleId = async (categoryId) => {
       const div = document.createElement("div");
       div.innerHTML = `
         <div class="card card-compact bg-base-100 shadow-xl">
-  <figure><img class="h-40 w-72" src="${card?.thumbnail}" alt="Shoes" /></figure>
+  <figure><img class="h-40 w-72" src="${card?.thumbnail}" alt="Shoes"/>
+  </figure>
+  ${
+    card?.others?.posted_date
+      ? `<p class="absolute bottom-36 bg-black rounded-md text-white right-2 text-sm text-gray-500">${getHoursAndMinutes(card?.others?.posted_date)}</p>`
+      : ''
+  }
   <div class="card-description flex">
     <div class="img">
     <img class="w-12 rounded-full m-5" src="${card?.authors[0]?.profile_picture}" alt="">
@@ -52,7 +58,10 @@ const handleId = async (categoryId) => {
     }
     </p>
     <p class="text-sm text-gray-500">Views: ${card?.others?.views || 0}</p>
-   
+    <p class="absolute bottom-2 right-2 text-sm text-gray-500">
+    
+
+
   </div>
 </div>
       </div>
@@ -78,7 +87,59 @@ const handleId = async (categoryId) => {
   }
 };
 
+
+function getHoursAndMinutes(durationInSeconds) {
+  const hours = Math.floor(durationInSeconds / 3600);
+  const minutes = Math.floor((durationInSeconds % 3600) / 60);
+
+  return `${hours}hrs ${minutes}min ago`;
+}
+ 
 // console.log(data);
 
+
+
+
+
+
+
+
+
+// const apiUrl = "https://jsonplaceholder.typicode.com/posts"; // Placeholder API URL
+
+// // Function to fetch and display video categories
+// async function fetchCategories() {
+//   try {
+//     // ... (previous code for fetching categories)
+//   } catch (error) {
+//     console.error("Error fetching categories:", error);
+//   }
+// }
+
+// // Function to fetch and display video data for a category
+// async function handleCategory(categoryId) {
+//   try {
+//     // ... (previous code for fetching category data)
+//   } catch (error) {
+//     console.error("Error fetching category data:", error);
+//   }
+// }
+// document.getElementById("blog-button").addEventListener("click", () => {
+//   // Replace the card content with answers to three questions
+//   cardContainer.innerHTML = `
+//     <div class="card">
+//       <h2 class="card-title">Question 1</h2>
+//       <p class="card-body">Answer to question 1.</p>
+//     </div>
+//     <div class="card">
+//       <h2 class="card-title">Question 2</h2>
+//       <p class="card-body">Answer to question 2.</p>
+//     </div>
+//     <div class="card">
+//       <h2 class="card-title">Question 3</h2>
+//       <p class="card-body">Answer to question 3.</p>
+//     </div>
+//   `;
+//});
 handleId("1000");
 handleCatagory();
