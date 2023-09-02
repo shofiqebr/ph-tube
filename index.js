@@ -79,10 +79,6 @@ const handleId = async (categoryId) => {
 
     cardContainer1.appendChild(section);
 
-    // cardContainer.appendChild(data.data.length === 0 ? section :div )
-    // const category = 0;
-    // category?"no data":cardContainer.appendChild(div);
-
   
   }
 };
@@ -105,41 +101,5 @@ function getHoursAndMinutes(durationInSeconds) {
 
 
 
-// const apiUrl = "https://jsonplaceholder.typicode.com/posts"; // Placeholder API URL
-
-// // Function to fetch and display video categories
-// async function fetchCategories() {
-//   try {
-//     // ... (previous code for fetching categories)
-//   } catch (error) {
-//     console.error("Error fetching categories:", error);
-//   }
-// }
-
-// // Function to fetch and display video data for a category
-// async function handleCategory(categoryId) {
-//   try {
-//     // ... (previous code for fetching category data)
-//   } catch (error) {
-//     console.error("Error fetching category data:", error);
-//   }
-// }
-// document.getElementById("blog-button").addEventListener("click", () => {
-//   // Replace the card content with answers to three questions
-//   cardContainer.innerHTML = `
-//     <div class="card">
-//       <h2 class="card-title">Question 1</h2>
-//       <p class="card-body">Answer to question 1.</p>
-//     </div>
-//     <div class="card">
-//       <h2 class="card-title">Question 2</h2>
-//       <p class="card-body">Answer to question 2.</p>
-//     </div>
-//     <div class="card">
-//       <h2 class="card-title">Question 3</h2>
-//       <p class="card-body">Answer to question 3.</p>
-//     </div>
-//   `;
-//});
 handleId("1000");
 handleCatagory();
