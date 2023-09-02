@@ -40,7 +40,7 @@ const handleId = async (categoryId) => {
   </figure>
   ${
     card?.others?.posted_date
-      ? `<p class="absolute bottom-36 md:right-16 right-7 bg-black rounded-md text-white lg:right-2 text-sm">${getHoursAndMinutes(card?.others?.posted_date)}</p>`
+      ? `<p class="absolute bottom-36 md:right-16 right-7 bg-black rounded-md text-white lg:right-4 text-sm">${getHoursAndMinutes(card?.others?.posted_date)}</p>`
       : ''
   }
   <div class="card-description flex">
