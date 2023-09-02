@@ -7,16 +7,16 @@ const handleCatagory = async () => {
   const data = await res.json();
   const tabContainer = document.getElementById("tab-container");
 
-  data.data.forEach((category) => {
+  data.data?.forEach((category) => {
     const div = document.createElement("div");
     div.innerHTML = `
             <a onclick="handleId('${category.category_id}')" class="tab">${category.category}</a> 
             `;
     tabContainer.appendChild(div);
-    // console.log(category);
+    // console.log(category.category);
   });
 
-//   console.log(data.data);
+  // console.log(data);
 };
 const handleId = async (categoryId) => {
 //   console.log(categoryId);
@@ -32,22 +32,27 @@ const handleId = async (categoryId) => {
   cardContainer1.innerHTML = "";
   if (data.data && data.data.length > 0) {
     data.data.forEach((card) => {
-         
+        console.log(card.others);
       const div = document.createElement("div");
       div.innerHTML = `
-        <div class="card card-compact  bg-base-100 shadow-xl">
-  <figure><img class="h-40 w-72" src="${card.thumbnail}" alt="Shoes" /></figure>
+        <div class="card card-compact bg-base-100 shadow-xl">
+  <figure><img class="h-40 w-72" src="${card?.thumbnail}" alt="Shoes" /></figure>
   <div class="card-description flex">
     <div class="img">
-    <img src="${card.profile_picture}" alt="">
+    <img class="w-12 rounded-full m-5" src="${card?.authors[0]?.profile_picture}" alt="">
     
     </div>
   <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions">
-      <button class="btn btn-primary">Buy Now</button>
-    </div>
+    <h2 class="card-title text-lg pt-4">${card?.title.slice(0,18)}</h2>
+    <p class="flex">${card?.authors[0]?.profile_name} ${
+      card?.authors[0]?.verified
+        ? 
+        '<img class="w-8" src="https://logowik.com/content/uploads/images/check-mark-badge6475.logowik.com.webp" alt="Verified Badge" width="10" height="8">'
+        : ''
+    }
+    </p>
+    <p class="text-sm text-gray-500">Views: ${card?.others?.views || 0}</p>
+   
   </div>
 </div>
       </div>
@@ -69,7 +74,7 @@ const handleId = async (categoryId) => {
     // const category = 0;
     // category?"no data":cardContainer.appendChild(div);
 
-    console.log(card);
+  
   }
 };
 
